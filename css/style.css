@@ -1,7 +1,6 @@
 :root {
-  --cell-size: 100px;
   --cell-border-size: 2px;
-  --sign-size: calc(var(--cell-size) * 0.75);
+  --sign-size: 75%;
 }
 
 body {
@@ -17,6 +16,8 @@ body {
 [data-board] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  max-width: 500px;
 }
 
 .cell {
@@ -24,9 +25,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: var(--cell-size);
-  height: var(--cell-size);
+  aspect-ratio: 1/1;
+  height: auto;
   border: var(--cell-border-size) solid black;
   cursor: pointer;
 }
