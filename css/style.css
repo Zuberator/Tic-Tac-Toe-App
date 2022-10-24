@@ -52,24 +52,25 @@ body {
   border-bottom: none;
 }
 
-[data-board] .cell:not(.cross):not(.circle):hover {
-  opacity: 0.5;
+[data-board] .cell.cross,
+[data-board] .cell.circle {
+  cursor: not-allowed;
 }
 
-.cell.cross,
 [data-board].cross .cell:not(.cross):not(.circle):hover {
-  background: url("https://api.iconify.design/fluent-emoji-high-contrast/cross-mark.svg?color=red");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: var(--sign-size);
+  background: url('https://api.iconify.design/fluent-emoji-high-contrast/cross-mark.svg?color=tomato') no-repeat center center / var(--sign-size);
 }
 
-.cell.circle,
 [data-board].circle .cell:not(.cross):not(.circle):hover {
-  background: url("https://api.iconify.design/fluent-emoji-high-contrast/hollow-red-circle.svg?color=green");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: var(--sign-size);
+  background: url('https://api.iconify.design/fluent-emoji-high-contrast/hollow-red-circle.svg?color=%2374c365') no-repeat center center / var(--sign-size);
+}
+
+.cell.cross {
+  background: url("https://api.iconify.design/fluent-emoji-high-contrast/cross-mark.svg?color=red") no-repeat center center / var(--sign-size);
+}
+
+.cell.circle {
+  background: url("https://api.iconify.design/fluent-emoji-high-contrast/hollow-red-circle.svg?color=green") no-repeat center center / var(--sign-size);
 }
 
 /* END-GAME-BOX */
