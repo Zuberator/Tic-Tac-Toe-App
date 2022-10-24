@@ -51,7 +51,8 @@ function endGame(draw) {
   if (draw) {
     endGameText.innerText = "Draw!";
   } else {
-    endGameText.innerText = `${currentTurn} Wins!`;
+    if (currentTurn == "circle") endGameText.innerHTML = `<iconify-icon inline icon="fluent-emoji-high-contrast:hollow-red-circle" style="color: green;"></iconify-icon> Wins!`;
+    else endGameText.innerHTML = `<iconify-icon inline icon="fluent-emoji-high-contrast:cross-mark" style="color: red;"></iconify-icon> Wins!`;
   }
   board.style.display = "none";
   endGameBox.style.display = "flex";

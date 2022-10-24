@@ -11,6 +11,7 @@ body {
   height: 100vh;
   font-family: sans-serif;
   transition: 0.5s;
+  font-size: clamp(1rem, 7vw, 1.5rem);
 }
 
 [data-board] {
@@ -83,13 +84,16 @@ body {
 /* BUTTONS */
 
 button {
-  width: 100px;
-  height: 40px;
+  width: 75vw;
+  max-width: 200px;
+  aspect-ratio: 3/1;
+  height: auto;
   cursor: pointer;
   background: #000;
   color: #fff;
   border: none;
   transition: 0.5s;
+  font-size: clamp(1rem, 7vw, 1.5rem);
 }
 
 button:hover {
