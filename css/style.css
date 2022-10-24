@@ -1,0 +1,97 @@
+:root {
+  --cell-size: 100px;
+  --cell-border-size: 2px;
+  --sign-size: calc(var(--cell-size) * 0.75);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: sans-serif;
+  transition: 0.5s;
+}
+
+[data-board] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: var(--cell-border-size) solid black;
+  cursor: pointer;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+
+[data-board] .cell:not(.cross):not(.circle):hover {
+  opacity: 0.5;
+}
+
+.cell.cross,
+[data-board].cross .cell:not(.cross):not(.circle):hover {
+  background: url("https://api.iconify.design/fluent-emoji-high-contrast/cross-mark.svg?color=red");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: var(--sign-size);
+}
+
+.cell.circle,
+[data-board].circle .cell:not(.cross):not(.circle):hover {
+  background: url("https://api.iconify.design/fluent-emoji-high-contrast/hollow-red-circle.svg?color=green");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: var(--sign-size);
+}
+
+/* END-GAME-BOX */
+
+[end-game-box] {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* BUTTONS */
+
+button {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  border: none;
+  transition: 0.5s;
+}
+
+button:hover {
+  opacity: 0.75;
+}
