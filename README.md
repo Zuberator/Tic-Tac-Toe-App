@@ -1,4 +1,4 @@
-# Hangman-App
-Classic Hangman game. You have to guess the word or proverb before you get hanged!
+# Tic-Tac-Toe-App
+Fully responsive, classic game. Try to line up your mark three in a row to win!
 
-LIVE: https://zuberator.github.io/Hangman-App/
+LIVE: https://zuberator.github.io/Tic-Tac-Toe-App/
