@@ -24,7 +24,7 @@ cells.forEach((element) => {
 function clickAction(event) {
   event.target.classList.add(currentTurn);
   if (checkWin(currentTurn)) endGame();
-  if (isDraw()) endGame(true);
+  else if (isDraw()) endGame(true);
   else {
     currentTurn = currentTurn === "cross" ? "circle" : "cross";
     setPlayerTurnSign(currentTurn);
