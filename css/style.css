@@ -9,6 +9,7 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  margin: 0;
   font-family: sans-serif;
   transition: 0.5s;
   font-size: clamp(1rem, 7vw, 1.5rem);
@@ -18,7 +19,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  max-width: 500px;
+  max-width: 750px;
 }
 
 .cell {
