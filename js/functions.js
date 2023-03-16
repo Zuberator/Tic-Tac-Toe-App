@@ -61,7 +61,7 @@ function clickAction(event) {
       );
       var randomIndex =
         emptyFields[Math.floor(Math.random() * emptyFields.length)];
-      randomIndex.click();
+      setTimeout(() => randomIndex.click(), 500);
     }
   }
 }
