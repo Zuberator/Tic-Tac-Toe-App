@@ -49,7 +49,7 @@ function clickAction(event) {
     endGame();
     return;
   }
-  if (isDraw()) endGame(draw);
+  if (isDraw()) endGame(true);
   else {
     currentTurn = currentTurn === "cross" ? "circle" : "cross";
     setPlayerTurnSign(currentTurn);
