@@ -6,12 +6,11 @@
   <meta charset="utf-8">
   <meta name="theme-color" content="#000" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description"
-    content="Fully responsive, classic game. Try to line up your mark three in a row to win!">
+  <meta name="description" content="Fully responsive, classic game. Try to line up your mark three in a row to win!">
   <link href="img/apple-touch-icon.png" rel="shortcut icon" type="image/png">
 
   <!-- WEB APP -->
-  <link href="manifest.json" rel="manifest">
+  <!-- <link href="manifest.json" rel="manifest"> -->
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon-precomposed">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -25,6 +24,16 @@
 </head>
 
 <body>
+
+  <div id="landingGameMode" class="landing">
+    <button id="player">1 VS 1</button>
+    <span class="divider">PLAYER VS COMPUTER</span>
+    <div class="difficulty">
+      <button data-difficulty id="easy">EASY</button>
+      <button data-difficulty id="medium">MEDIUM</button>
+      <button data-difficulty id="hard">HARD</button>
+    </div>
+  </div>
 
   <div data-board>
     <div class="cell" data-cell></div>

@@ -11,8 +11,29 @@ const WINNING_COMBINATIONS = [
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
-  [2, 4, 6]
+  [2, 4, 6],
 ];
+
+// LANDING
+const landingStart = document.getElementById("landingGameMode");
+
+// BUTTONS
+const buttonPlayer = document.getElementById("player");
+const buttonEasy = document.getElementById("easy");
+const buttonMedium = document.getElementById("medium");
+const buttonHard = document.getElementById("hard");
+const landingButtons = landingStart.querySelectorAll("button");
+
+// GAME MODE
+var gameMode;
+
+landingButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    gameMode = button.getAttribute("id");
+    landingStart.style.display = "none";
+  });
+});
+
 let currentTurn = "cross";
 
 setPlayerTurnSign(currentTurn);
@@ -24,10 +45,20 @@ cells.forEach((element) => {
 function clickAction(event) {
   event.target.classList.add(currentTurn);
   if (checkWin(currentTurn)) endGame();
-  else if (isDraw()) endGame(true);
+  if (isDraw()) endGame(true);
   else {
     currentTurn = currentTurn === "cross" ? "circle" : "cross";
     setPlayerTurnSign(currentTurn);
+    if (gameMode !== "player" && currentTurn !== "cross") {
+      let emptyFields = [...cells].filter(
+        (cell) =>
+          !cell.classList.contains("cross") &&
+          !cell.classList.contains("circle")
+      );
+      var randomIndex =
+        emptyFields[Math.floor(Math.random() * emptyFields.length)];
+      randomIndex.click();
+    }
   }
 }
 
@@ -51,8 +82,10 @@ function endGame(draw) {
   if (draw) {
     endGameText.innerText = "Draw!";
   } else {
-    if (currentTurn == "circle") endGameText.innerHTML = `<iconify-icon inline icon="fluent-emoji-high-contrast:hollow-red-circle" style="color: green;"></iconify-icon> Wins!`;
-    else endGameText.innerHTML = `<iconify-icon inline icon="fluent-emoji-high-contrast:cross-mark" style="color: red;"></iconify-icon> Wins!`;
+    if (currentTurn == "circle")
+      endGameText.innerHTML = `<iconify-icon inline icon="fluent-emoji-high-contrast:hollow-red-circle" style="color: green;"></iconify-icon> Wins!`;
+    else
+      endGameText.innerHTML = `<iconify-icon inline icon="fluent-emoji-high-contrast:cross-mark" style="color: red;"></iconify-icon> Wins!`;
   }
   board.style.display = "none";
   endGameBox.style.display = "flex";

@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --cell-border-size: 2px;
   --sign-size: 75%;
@@ -9,11 +13,72 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  margin: 0;
+  margin: 1rem;
   font-family: sans-serif;
   transition: 0.5s;
   font-size: clamp(1rem, 7vw, 1.5rem);
 }
+
+/* BUTTONS */
+
+button {
+  width: 75vw;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 3/1;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  border: none;
+  transition: 0.5s;
+  font-size: clamp(1rem, 7vw, 1.5rem);
+}
+
+button:hover {
+  opacity: 0.75;
+}
+
+/* LANDING - OPTIONS */
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  transition: 2s;
+  gap: 5vh;
+  padding: 1rem;
+  z-index: 999;
+}
+
+.divider {
+  display: flex;
+  font-size: clamp(1px, 2vh, 1rem);
+}
+
+.divider:before,
+.divider:after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid;
+  margin: auto 5vw;
+  width: 20vw;
+}
+
+.difficulty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* MAIN GAME */
 
 [data-board] {
   display: grid;
@@ -59,19 +124,23 @@ body {
 }
 
 [data-board].cross .cell:not(.cross):not(.circle):hover {
-  background: url('https://api.iconify.design/fluent-emoji-high-contrast/cross-mark.svg?color=tomato') no-repeat center center / var(--sign-size);
+  background: url("https://api.iconify.design/fluent-emoji-high-contrast/cross-mark.svg?color=tomato") no-repeat center
+    center / var(--sign-size);
 }
 
 [data-board].circle .cell:not(.cross):not(.circle):hover {
-  background: url('https://api.iconify.design/fluent-emoji-high-contrast/hollow-red-circle.svg?color=%2374c365') no-repeat center center / var(--sign-size);
+  background: url("https://api.iconify.design/fluent-emoji-high-contrast/hollow-red-circle.svg?color=%2374c365")
+    no-repeat center center / var(--sign-size);
 }
 
 .cell.cross {
-  background: url("https://api.iconify.design/fluent-emoji-high-contrast/cross-mark.svg?color=red") no-repeat center center / var(--sign-size);
+  background: url("https://api.iconify.design/fluent-emoji-high-contrast/cross-mark.svg?color=red") no-repeat center
+    center / var(--sign-size);
 }
 
 .cell.circle {
-  background: url("https://api.iconify.design/fluent-emoji-high-contrast/hollow-red-circle.svg?color=green") no-repeat center center / var(--sign-size);
+  background: url("https://api.iconify.design/fluent-emoji-high-contrast/hollow-red-circle.svg?color=green") no-repeat
+    center center / var(--sign-size);
 }
 
 /* END-GAME-BOX */
@@ -81,23 +150,4 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-/* BUTTONS */
-
-button {
-  width: 75vw;
-  max-width: 200px;
-  aspect-ratio: 3/1;
-  height: auto;
-  cursor: pointer;
-  background: #000;
-  color: #fff;
-  border: none;
-  transition: 0.5s;
-  font-size: clamp(1rem, 7vw, 1.5rem);
-}
-
-button:hover {
-  opacity: 0.75;
 }
