@@ -31,6 +31,7 @@ landingButtons.forEach((button) => {
   button.addEventListener("click", () => {
     gameMode = button.getAttribute("id");
     landingStart.style.display = "none";
+    board.removeAttribute("style");
   });
 });
 
@@ -44,8 +45,11 @@ cells.forEach((element) => {
 
 function clickAction(event) {
   event.target.classList.add(currentTurn);
-  if (checkWin(currentTurn)) endGame();
-  if (isDraw()) endGame(true);
+  if (checkWin(currentTurn)) {
+    endGame();
+    return;
+  }
+  if (isDraw()) endGame(draw);
   else {
     currentTurn = currentTurn === "cross" ? "circle" : "cross";
     setPlayerTurnSign(currentTurn);
