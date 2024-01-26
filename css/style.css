@@ -87,8 +87,9 @@ button:hover {
 [data-board] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 100%;
-  max-width: 750px;
+  width: 75vw;
+  max-width: 75vh;
+  aspect-ratio: 1/1;
 }
 
 .cell {
